@@ -7,7 +7,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/sony/appsync-client-go/graphql"
+	"github.com/rodrigopavezi/appsync-client-go/graphql"
 )
 
 type ret struct {

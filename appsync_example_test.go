@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/sony/appsync-client-go/internal/appsynctest"
+	"github.com/rodrigopavezi/appsync-client-go/internal/appsynctest"
 
-	appsync "github.com/sony/appsync-client-go"
-	"github.com/sony/appsync-client-go/graphql"
+	appsync "github.com/rodrigopavezi/appsync-client-go"
+	"github.com/rodrigopavezi/appsync-client-go/graphql"
 )
 
 func ExampleClient_Post_query() {
