@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/sony/appsync-client-go/graphql"
+	"github.com/rodrigopavezi/appsync-client-go/graphql"
 )
 
 var (

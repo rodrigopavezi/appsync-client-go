@@ -96,13 +96,21 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:3363270973dfa5f05b1d6085e581a89526aa6ce325e022cf807d54bd08aa4ca7"
-  name = "github.com/sony/appsync-client-go"
+  digest = "1:30580fb571b500c9c393b10971bbbd4ac076b72143439b4cfc406e6abfc9aa43"
+  name = "github.com/rodrigopavezi/appsync-client-go"
   packages = [
     ".",
     "graphql",
     "internal/appsynctest",
   ]
+  pruneopts = "UT"
+  revision = "219c604e27836216cf8d57818a0bb34f40ccb4bd"
+
+[[projects]]
+  branch = "master"
+  digest = "1:96589db7d11ec8b12122ebbc612b98118c642782c250601114e77870a6987398"
+  name = "github.com/sony/appsync-client-go"
+  packages = ["graphql"]
   pruneopts = "UT"
   revision = "c6f15129c3de1cfd9ea2bd39566e0ba8aa674aa3"
 
@@ -161,9 +169,9 @@
     "github.com/gorilla/websocket",
     "github.com/graph-gophers/graphql-go",
     "github.com/graph-gophers/graphql-go/relay",
-    "github.com/sony/appsync-client-go",
-    "github.com/sony/appsync-client-go/graphql",
-    "github.com/sony/appsync-client-go/internal/appsynctest",
+    "github.com/rodrigopavezi/appsync-client-go",
+    "github.com/rodrigopavezi/appsync-client-go/graphql",
+    "github.com/rodrigopavezi/appsync-client-go/internal/appsynctest",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
