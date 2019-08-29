@@ -2,6 +2,22 @@
 
 
 [[projects]]
+  digest = "1:49d25cb469b76023a85cceff77c7196ca4ec3e9d4fa9c8583804d13d10382e95"
+  name = "github.com/aws/aws-sdk-go-v2"
+  packages = [
+    "aws",
+    "aws/awserr",
+    "aws/signer/v4",
+    "internal/awsutil",
+    "internal/sdk",
+    "private/protocol",
+    "private/protocol/rest",
+  ]
+  pruneopts = "UT"
+  revision = "d7de2270ae1a1df69332a33eb73c57ea5b829983"
+  version = "v0.11.0"
+
+[[projects]]
   digest = "1:2209584c0f7c9b68c23374e659357ab546e1b70eec2761f03280f69a8fd23d77"
   name = "github.com/cenkalti/backoff"
   packages = ["."]
@@ -60,6 +76,13 @@
   revision = "3e8838d4614c12ab337e796548521744f921e05d"
 
 [[projects]]
+  digest = "1:bb81097a5b62634f3e9fec1014657855610c82d19b9a40c17612e32651e35dca"
+  name = "github.com/jmespath/go-jmespath"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "c2b33e84"
+
+[[projects]]
   digest = "1:450b7623b185031f3a456801155c8320209f75d0d4c4e633c6b1e59d44d6e392"
   name = "github.com/opentracing/opentracing-go"
   packages = [
@@ -73,10 +96,26 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:a0af40974e6934f373b37ecea5c0d07c7a5f7c1f6284c0009589a7637c8c37b3"
+  digest = "1:3363270973dfa5f05b1d6085e581a89526aa6ce325e022cf807d54bd08aa4ca7"
+  name = "github.com/sony/appsync-client-go"
+  packages = [
+    ".",
+    "graphql",
+    "internal/appsynctest",
+  ]
+  pruneopts = "UT"
+  revision = "c6f15129c3de1cfd9ea2bd39566e0ba8aa674aa3"
+
+[[projects]]
+  branch = "master"
+  digest = "1:c9c7490867509bdf7f944874dcf28170801ca543a082f733a4cdbe0753abd3e1"
   name = "golang.org/x/net"
   packages = [
     "context",
+    "http/httpguts",
+    "http2",
+    "http2/hpack",
+    "idna",
     "internal/socks",
     "proxy",
     "websocket",
@@ -84,10 +123,37 @@
   pruneopts = "UT"
   revision = "c44066c5c816ec500d459a2a324a753f78531ae0"
 
+[[projects]]
+  digest = "1:8d8faad6b12a3a4c819a3f9618cb6ee1fa1cfc33253abeeea8b55336721e3405"
+  name = "golang.org/x/text"
+  packages = [
+    "collate",
+    "collate/build",
+    "internal/colltab",
+    "internal/gen",
+    "internal/language",
+    "internal/language/compact",
+    "internal/tag",
+    "internal/triegen",
+    "internal/ucd",
+    "language",
+    "secure/bidirule",
+    "transform",
+    "unicode/bidi",
+    "unicode/cldr",
+    "unicode/norm",
+    "unicode/rangetable",
+  ]
+  pruneopts = "UT"
+  revision = "342b2e1fbaa52c93f31447ad2c6abc048c63e475"
+  version = "v0.3.2"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/aws/aws-sdk-go-v2/aws",
+    "github.com/aws/aws-sdk-go-v2/aws/signer/v4",
     "github.com/cenkalti/backoff",
     "github.com/eclipse/paho.mqtt.golang",
     "github.com/eclipse/paho.mqtt.golang/packets",
@@ -95,6 +161,9 @@
     "github.com/gorilla/websocket",
     "github.com/graph-gophers/graphql-go",
     "github.com/graph-gophers/graphql-go/relay",
+    "github.com/sony/appsync-client-go",
+    "github.com/sony/appsync-client-go/graphql",
+    "github.com/sony/appsync-client-go/internal/appsynctest",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
