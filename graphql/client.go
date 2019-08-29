@@ -11,21 +11,25 @@ import (
 	"net/url"
 	"time"
 
+	"github.com/aws/aws-sdk-go-v2/aws"
+	v4 "github.com/aws/aws-sdk-go-v2/aws/signer/v4"
 	"github.com/cenkalti/backoff"
 )
 
 // Client represents a generic GraphQL API client.
 type Client struct {
 	endpoint       string
+	awsConfig      aws.Config
 	timeout        time.Duration
 	maxElapsedTime time.Duration
 	header         http.Header
 }
 
 // NewClient returns a Client instance.
-func NewClient(endpoint string, opts ...ClientOption) *Client {
+func NewClient(endpoint string, awsConfig aws.Config, opts ...ClientOption) *Client {
 	c := &Client{
 		endpoint:       endpoint,
+		awsConfig:      awsConfig,
 		timeout:        time.Duration(30 * time.Second),
 		maxElapsedTime: time.Duration(20 * time.Second),
 		header:         map[string][]string{},
@@ -71,6 +75,14 @@ func (c *Client) PostAsync(header http.Header, request PostRequest, callback fun
 	}
 	for k, v := range header {
 		req.Header[k] = v
+	}
+
+	if c.awsConfig != nil {
+		signer := v4.NewSigner(c.awsConfig.Credentials)
+		_, err = signer.Sign(req, nil, "AppSync", c.awsConfig.Region, time.Now())
+		if err != nil {
+			fmt.Printf("failed to sign request: (%v)\n", err)
+		}
 	}
 
 	ctx, cancel := context.WithTimeout(req.Context(), c.timeout)
