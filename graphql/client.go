@@ -77,14 +77,14 @@ func (c *Client) PostAsync(header http.Header, request PostRequest, callback fun
 		req.Header[k] = v
 	}
 
+	ctx, cancel := context.WithTimeout(req.Context(), c.timeout)
+	req = req.WithContext(ctx)
+
 	signer := v4.NewSigner(c.awsConfig.Credentials)
 	_, err = signer.Sign(req, request, "AppSync", c.awsConfig.Region, time.Now())
 	if err != nil {
 		fmt.Printf("failed to sign request: (%v)\n", err)
 	}
-
-	ctx, cancel := context.WithTimeout(req.Context(), c.timeout)
-	req = req.WithContext(ctx)
 
 	go func() {
 		defer cancel()
