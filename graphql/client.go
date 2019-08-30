@@ -85,8 +85,8 @@ func (c *Client) PostAsync(header http.Header, request PostRequest, callback fun
 	if err != nil {
 		fmt.Printf("failed to sign request: (%v)\n", err)
 	}
-	log.Println("Signed headers: %+v", headers)
-	log.Println("Request: %+v", req)
+	log.Println(fmt.Errorf("Signed headers: %+v", headers))
+	log.Println(fmt.Errorf("Request: %+v", req))
 
 	go func() {
 		defer cancel()
