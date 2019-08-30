@@ -77,6 +77,7 @@ func (c *Client) PostAsync(header http.Header, request PostRequest, callback fun
 		req.Header[k] = v
 	}
 
+	log.Println("awsConfig: %+v", c.awsConfig)
 	if &c.awsConfig != nil {
 		signer := v4.NewSigner(c.awsConfig.Credentials)
 		_, err = signer.Sign(req, nil, "AppSync", c.awsConfig.Region, time.Now())
