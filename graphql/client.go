@@ -80,13 +80,13 @@ func (c *Client) PostAsync(header http.Header, request PostRequest, callback fun
 	ctx, cancel := context.WithTimeout(req.Context(), c.timeout)
 	req = req.WithContext(ctx)
 
-	signer := v4.NewSigner(c.awsConfig.Credentials)
-	headers, err := signer.Sign(req, bytes.NewReader(jsonBytes), "appsync", *c.awsConfig.Region, time.Now())
-	if err != nil {
-		fmt.Printf("failed to sign request: (%v)\n", err)
+	if c.awsConfig.Credentials != nil {
+		signer := v4.NewSigner(c.awsConfig.Credentials)
+		headers, err := signer.Sign(req, bytes.NewReader(jsonBytes), "appsync", *c.awsConfig.Region, time.Now())
+		if err != nil {
+			fmt.Printf("failed to sign request: (%v)\n", err)
+		}
 	}
-	log.Println(fmt.Errorf("Signed headers: %+v", headers))
-	log.Println(fmt.Errorf("Request: %+v", req))
 
 	go func() {
 		defer cancel()

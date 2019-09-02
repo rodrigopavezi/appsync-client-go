@@ -25,34 +25,6 @@
   version = "v1.23.13"
 
 [[projects]]
-  digest = "1:af96c2da3f2ada19bab42e893df3f8e2170bd1f1d119ce634dbd59b736e3b2b0"
-  name = "github.com/aws/aws-sdk-go-v2"
-  packages = [
-    "aws",
-    "aws/awserr",
-    "aws/defaults",
-    "aws/ec2metadata",
-    "aws/ec2rolecreds",
-    "aws/endpointcreds",
-    "aws/endpoints",
-    "aws/external",
-    "aws/signer/v4",
-    "aws/stscreds",
-    "internal/awsutil",
-    "internal/ini",
-    "internal/sdk",
-    "private/protocol",
-    "private/protocol/query",
-    "private/protocol/query/queryutil",
-    "private/protocol/rest",
-    "private/protocol/xml/xmlutil",
-    "service/sts",
-  ]
-  pruneopts = "UT"
-  revision = "d7de2270ae1a1df69332a33eb73c57ea5b829983"
-  version = "v0.11.0"
-
-[[projects]]
   digest = "1:2209584c0f7c9b68c23374e659357ab546e1b70eec2761f03280f69a8fd23d77"
   name = "github.com/cenkalti/backoff"
   packages = ["."]
@@ -187,7 +159,6 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
-    "github.com/aws/aws-sdk-go-v2/aws/external",
     "github.com/aws/aws-sdk-go/aws",
     "github.com/aws/aws-sdk-go/aws/signer/v4",
     "github.com/cenkalti/backoff",
