@@ -81,7 +81,7 @@ func (c *Client) PostAsync(header http.Header, request PostRequest, callback fun
 	req = req.WithContext(ctx)
 
 	signer := v4.NewSigner(c.awsConfig.Credentials)
-	headers, err := signer.Sign(req, bytes.NewReader(jsonBytes), "appsync", c.awsConfig.Region, time.Now())
+	headers, err := signer.Sign(req, bytes.NewReader(jsonBytes), "appsync", *c.awsConfig.Region, time.Now())
 	if err != nil {
 		fmt.Printf("failed to sign request: (%v)\n", err)
 	}
