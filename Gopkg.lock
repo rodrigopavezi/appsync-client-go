@@ -2,16 +2,51 @@
 
 
 [[projects]]
-  digest = "1:49d25cb469b76023a85cceff77c7196ca4ec3e9d4fa9c8583804d13d10382e95"
+  digest = "1:2289e3269bfadfe14e10b7e8fdcc97a73266de4a2a0c1d371fa35d5375df3dd1"
+  name = "github.com/aws/aws-sdk-go"
+  packages = [
+    "aws",
+    "aws/awserr",
+    "aws/awsutil",
+    "aws/client/metadata",
+    "aws/credentials",
+    "aws/endpoints",
+    "aws/request",
+    "aws/signer/v4",
+    "internal/ini",
+    "internal/sdkio",
+    "internal/sdkmath",
+    "internal/shareddefaults",
+    "private/protocol",
+    "private/protocol/rest",
+  ]
+  pruneopts = "UT"
+  revision = "d57c8d96f72d9475194ccf18d2ba70ac294b0cb3"
+  version = "v1.23.13"
+
+[[projects]]
+  digest = "1:af96c2da3f2ada19bab42e893df3f8e2170bd1f1d119ce634dbd59b736e3b2b0"
   name = "github.com/aws/aws-sdk-go-v2"
   packages = [
     "aws",
     "aws/awserr",
+    "aws/defaults",
+    "aws/ec2metadata",
+    "aws/ec2rolecreds",
+    "aws/endpointcreds",
+    "aws/endpoints",
+    "aws/external",
     "aws/signer/v4",
+    "aws/stscreds",
     "internal/awsutil",
+    "internal/ini",
     "internal/sdk",
     "private/protocol",
+    "private/protocol/query",
+    "private/protocol/query/queryutil",
     "private/protocol/rest",
+    "private/protocol/xml/xmlutil",
+    "service/sts",
   ]
   pruneopts = "UT"
   revision = "d7de2270ae1a1df69332a33eb73c57ea5b829983"
@@ -96,7 +131,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:30580fb571b500c9c393b10971bbbd4ac076b72143439b4cfc406e6abfc9aa43"
+  digest = "1:fe16791e872e56914087b174eb5026fcc37a67285cdaf9b16f782454f246b6d3"
   name = "github.com/rodrigopavezi/appsync-client-go"
   packages = [
     ".",
@@ -104,15 +139,7 @@
     "internal/appsynctest",
   ]
   pruneopts = "UT"
-  revision = "219c604e27836216cf8d57818a0bb34f40ccb4bd"
-
-[[projects]]
-  branch = "master"
-  digest = "1:96589db7d11ec8b12122ebbc612b98118c642782c250601114e77870a6987398"
-  name = "github.com/sony/appsync-client-go"
-  packages = ["graphql"]
-  pruneopts = "UT"
-  revision = "c6f15129c3de1cfd9ea2bd39566e0ba8aa674aa3"
+  revision = "2ca9b364c6fee4b49aa2153519009143231c06c1"
 
 [[projects]]
   branch = "master"
@@ -160,8 +187,9 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
-    "github.com/aws/aws-sdk-go-v2/aws",
-    "github.com/aws/aws-sdk-go-v2/aws/signer/v4",
+    "github.com/aws/aws-sdk-go-v2/aws/external",
+    "github.com/aws/aws-sdk-go/aws",
+    "github.com/aws/aws-sdk-go/aws/signer/v4",
     "github.com/cenkalti/backoff",
     "github.com/eclipse/paho.mqtt.golang",
     "github.com/eclipse/paho.mqtt.golang/packets",
